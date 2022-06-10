@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
+      integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5"
+      crossorigin="anonymous"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>play music</title>
+  </head>
+  
+  <body>
+    <div class="bgImage"></div>
+    <main class="container">
+      <img src="" alt="" />
+      <div class="divControl">
+        <h4 class="nameMusic">nome musica</h4>
+        <p class="autor">autor</p>
+        <input class="progressBar" type="range" min="0" max="0" step="1" tabindex="-1"/>
+        <div class="controls">
+          <i class="fa-solid fa-backward-step arrowLeft" tabindex="0" ></i>
+          <i class="fa-solid fa-play playPause" tabindex="0"></i>
+          <i class="fa-solid fa-forward-step arrowRight" tabindex="0" ></i>
+          <i class="fa-solid fa-repeat repeat" tabindex="0"></i>
+        </div>
+      </div>
+
+      <div class="divVolume">
+        <i class="fa-solid fa-volume-high iconVolume" tabindex="0" ></i>
+        <input class="volume" type="range"  min="0" max="100" value="50" step="1"
+        />
+      </div>
+    </main>
+    <script type="module" src="scritpt.js"></script>
+  </body>
+</html>
