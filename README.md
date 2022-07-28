@@ -21,9 +21,10 @@
 
 <br/>
 
-<div>
-  <img src="./img/ilustracao4.gif" width="100%">
-  <img src="./img/ilustracao5.gif" width="100%">
+<div align="center">
+  <img src="./img/ilustracao4.gif" width="80%">
+  <img src="./img/ilustracao5.gif" width="80%">
+  
   <small>Obs: O teclado Virtual foi usado para representar o teclado físico.</small>
 </div>
 

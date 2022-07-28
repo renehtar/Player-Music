@@ -8,7 +8,6 @@ export default {
   background: document.querySelector('.bgImage'),
   musicName: document.querySelector('.nameMusic'),
   autor: document.querySelector('.autor'),
-  progress: document.querySelector('.progressBar'),
   iconVolume: document.querySelector('.iconVolume'),
   volume: document.querySelector('.volume'),
   arrowLeft: document.querySelector('.arrowLeft'),
@@ -16,7 +15,8 @@ export default {
   arrowRight: document.querySelector('.arrowRight'),
   repeat: document.querySelector('.repeat'),
   audio: new Audio(db[nextdb].song),
-  isPlayng: false,
+  progress: document.querySelector('.progressBar'),
+  isPlaying: false,
   isRepeating: false,
   isMute: false,
   // funções
@@ -26,6 +26,7 @@ export default {
     this.musicName.innerText = db[nextdb].nameMusic
     this.autor.innerText = db[nextdb].autor
     this.audio.volume = this.volume.value / 100
+    this.updateProgress()
     this.actions()
   },
   actions() {
@@ -44,17 +45,17 @@ export default {
     this.volume.oninput = () => this.setVolume()
   },
   play() {
-    this.isPlayng = true
+    this.isPlaying = true
     this.audio.play()
     this.playPause.classList.replace('fa-play', 'fa-pause')
   },
   pause() {
-    this.isPlayng = false
+    this.isPlaying = false
     this.audio.pause()
     this.playPause.classList.replace('fa-pause', 'fa-play')
   },
   togglePayPause() {
-    if (this.isPlayng) {
+    if (this.isPlaying) {
       this.pause()
     } else {
       this.play()
@@ -69,7 +70,7 @@ export default {
     this.musicName.innerText = db[nextdb].nameMusic
     this.autor.innerText = db[nextdb].autor
     this.audio.src = db[nextdb].song
-    if (this.isPlayng) {
+    if (this.isPlaying) {
       this.play()
     } else {
       this.pause()
@@ -84,7 +85,7 @@ export default {
     this.musicName.innerText = db[nextdb].nameMusic
     this.autor.innerText = db[nextdb].autor
     this.audio.src = db[nextdb].song
-    if (this.isPlayng) {
+    if (this.isPlaying) {
       this.play()
     } else {
       this.pause()
