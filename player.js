@@ -7,6 +7,7 @@ export default {
   img: document.querySelector('img'),
   background: document.querySelector('.bgImage'),
   musicName: document.querySelector('.nameMusic'),
+  progress: document.querySelector('.progressBar'),
   autor: document.querySelector('.autor'),
   iconVolume: document.querySelector('.iconVolume'),
   volume: document.querySelector('.volume'),
@@ -15,7 +16,6 @@ export default {
   arrowRight: document.querySelector('.arrowRight'),
   repeat: document.querySelector('.repeat'),
   audio: new Audio(db[nextdb].song),
-  progress: document.querySelector('.progressBar'),
   isPlaying: false,
   isRepeating: false,
   isMute: false,
@@ -26,12 +26,11 @@ export default {
     this.musicName.innerText = db[nextdb].nameMusic
     this.autor.innerText = db[nextdb].autor
     this.audio.volume = this.volume.value / 100
-    this.updateProgress()
+    this.progress.max = this.audio.duration
     this.actions()
   },
   actions() {
     this.audio.onloadeddata = () => {
-      this.progress.max = this.audio.duration
       this.start()
     }
     this.arrowLeft.onclick = () => this.previousMusic()
