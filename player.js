@@ -54,41 +54,29 @@ export default {
     this.playPause.classList.replace('fa-pause', 'fa-play')
   },
   togglePayPause() {
-    if (this.isPlaying) {
-      this.pause()
-    } else {
-      this.play()
-    }
+    this.isPlaying ? this.play() : this.pause()
   },
   previousMusic() {
     nextdb--
-    if (nextdb < 0) {
-      nextdb = db.length - 1
-    }
+    if (nextdb < 0) nextdb = db.length - 1
+
     this.img.src = db[nextdb].img
     this.musicName.innerText = db[nextdb].nameMusic
     this.autor.innerText = db[nextdb].autor
     this.audio.src = db[nextdb].song
-    if (this.isPlaying) {
-      this.play()
-    } else {
-      this.pause()
-    }
+
+    this.isPlaying ? this.play() : this.pause()
   },
   nextMusic() {
     nextdb++
-    if (nextdb === db.length) {
-      nextdb = 0
-    }
+    if (nextdb === db.length) nextdb = 0
+
     this.img.src = db[nextdb].img
     this.musicName.innerText = db[nextdb].nameMusic
     this.autor.innerText = db[nextdb].autor
     this.audio.src = db[nextdb].song
-    if (this.isPlaying) {
-      this.play()
-    } else {
-      this.pause()
-    }
+
+    this.isPlaying ? this.play() : this.pause()
   },
   repeating() {
     this.isRepeating = true
@@ -101,17 +89,12 @@ export default {
     this.repeat.style.color = '#fff'
   },
   toggleRepeat() {
-    if (this.isRepeating) {
-      this.notRepeating()
-    } else {
-      this.repeating()
-    }
+    this.isRepeating ? this.notRepeating() : this.repeating()
   },
   setVolume() {
     this.audio.volume = this.volume.value / 100
     if (this.audio.volume === 0) {
-      this.iconVolume.classList.replace('fa-volume-high', 'fa-volume-xmark')
-      this.isMute = true
+      this.mute()
     } else {
       this.iconVolume.classList.replace('fa-volume-xmark', 'fa-volume-high')
       this.isMute = false
@@ -120,19 +103,17 @@ export default {
   mute() {
     this.isMute = true
     this.audio.volume = 0
+    this.volume.value = 0
     this.iconVolume.classList.replace('fa-volume-high', 'fa-volume-xmark')
   },
   noMute() {
     this.isMute = false
-    this.audio.volume = this.volume.value / 100
+    this.audio.volume = 50 / 100
+    this.volume.value = 50
     this.iconVolume.classList.replace('fa-volume-xmark', 'fa-volume-high')
   },
   toggleMute() {
-    if (this.isMute) {
-      this.noMute()
-    } else {
-      this.mute()
-    }
+    this.isMute ? this.noMute() : this.mute()
   },
   progressBar() {
     this.audio.currentTime = this.progress.value
